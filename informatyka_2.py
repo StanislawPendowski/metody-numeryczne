@@ -4,46 +4,49 @@ def horner(liczba,x):
         w = x * w + int(liczba[i])
     return w
 
-
-liczby8 = []
-with open('liczby1.txt') as plik:
+ciagi = []
+with open("ciagi.txt") as plik:
     for linia in plik:
-        liczby8.append(linia.strip())
-liczby10 = []
-with open('liczby2.txt') as plik:
-    for linia in plik:
-        liczby10.append(linia)
-print(liczby10)
+        ciagi.append(linia.strip())
+print(ciagi)
 
-minimum = int(liczby8[0])
-maks = int(liczby8[0])
-
-for i in range(1, len(liczby8)):
-    if minimum > int(liczby8[i]):
-        minimum = int(liczby8[i])
-    if maks < int(liczby8[i]):
-        maks = int(liczby8[i])
-print(minimum, maks)
-
-pierwszy = int(liczby8[0])
-pierwszyMaks = pierwszy
-ilosc = 1
-for i in range(len(liczby8)-1):
-    if int(liczby8[i])<=(liczby8[i+1]):
-        ilosc += 1
-        if ilosc > maksymalnaIlosc:
-            maksymalnaIlosc = ilosc
-            pierwszyMaks = pierwszy
-    else:
-        pierwszy = int(liczby8[i])
-        ilosc = 1
-print(maksymalnaIlosc, pierwszyMaks)
-
+for i in range(len(ciagi)):
+    if ciagi[i][:len(ciagi[i])//2] == ciagi[i][len(ciagi[i])//2:]:
+        print(ciagi[i])
 licznik = 0
-licznik2 = 0
-for i in range(len(liczby8)):
-    if horner(liczby8[i],8) == liczby10[i]:
+
+for i in range(len(ciagi)):
+    if"11" not in ciagi[i]:
         licznik += 1
-    if horner(liczby8[i],8) > liczby10[i]:
-        licznik2 += 1
-print(licznik, licznik2)
+print(licznik)
+
+liczby = []
+for i in range(len(ciagi)):
+    liczby.append(horner(ciagi[i],2))
+print(liczby)
+
+sito = []
+for i in rangr(363000):
+    sito.append(1)
+for i in range(2,363000):
+    if sito[i] == 1:
+        for j in range(i+i, 363000,i):
+            siro[j] = 0
+pierwsze =[]
+for i in rangr(363000):
+    if sito[i] == 1:
+        pierwsze.append(i)
+print(pierwsze)
+
+
+for i in range(len(liczby)):
+    czynniki = []
+    for j in range(len(pierwsze)):
+        liczba = liczby[i]
+        while liczba % pierwsze[j] == 0:
+            czynniki.append(pierwsze[j])
+            liczba = liczba // pierwsze[j]
+            if len(czynniki) > 2:
+                break
+    if len(czynniki) == 2:
+        print(liczby[i, czynniki])
